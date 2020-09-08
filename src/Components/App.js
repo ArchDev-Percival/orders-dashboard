@@ -19,7 +19,7 @@ const Grid = styled.div`
   grid-auto-flow: row;
   grid-template-rows: auto;
   grid-template-columns: 1fr;
-  gap: 1 rem;
+  gap: 1rem;
 
   @media only screen and (min-width: 768px) {
     grid-template-columns: 1fr 1fr;

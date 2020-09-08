@@ -5,7 +5,7 @@ const FilterOrderByWorker = ({ workersList, updateDisplayedOrders }) => {
     return null;
   } else {
     return (
-      <div className="filterbar" style={{ display: "block", width: "100%" }}>
+      <div className="filterbar">
         <label htmlFor="filter-workder"> Filter by Worker Name: </label>
         <select
           id="filter-worker"
@@ -30,16 +30,16 @@ const FilterOrderByWorker = ({ workersList, updateDisplayedOrders }) => {
   }
 };
 
-const SortOrdersAscDesc = ({ sortHook }) => {
+const SortOrdersAscDesc = ({ isSortAscending, updateIsSortAscending }) => {
   return (
     <label>
       Sort work orders in Ascending Order:
       <input
         id="ascdecsort"
         type="checkbox"
-        checked={sortHook.isSortAscending}
+        checked={isSortAscending}
         onChange={(event) => {
-          sortHook.updateIsSortAscending(!sortHook.isSortAscending);
+          updateIsSortAscending(!isSortAscending);
         }}
       />
     </label>
@@ -57,7 +57,10 @@ const FilterBar = ({
       workersList={workersList}
       updateDisplayedOrders={updateFilterBy}
     />
-    <SortOrdersAscDesc sortHook={[isSortAscending, updateIsSortAscending]} />
+    <SortOrdersAscDesc
+      isSortAscending={isSortAscending}
+      updateIsSortAscending={updateIsSortAscending}
+    />
   </div>
 );
 
