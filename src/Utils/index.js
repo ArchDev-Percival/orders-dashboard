@@ -1,2 +1,6 @@
-export { updateOrderWorkerStateFromAPI } from "./utils";
+export {
+  updateOrderWorkerStateFromAPI,
+  filterOrdersByIdOrder,
+  getDaysOpen,
+} from "./utils";
 export * from "./typography";
