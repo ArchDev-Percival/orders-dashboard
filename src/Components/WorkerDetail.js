@@ -4,6 +4,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Avatar from "@material-ui/core/Avatar";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { CardSectionDiv, CARDSECTIONDIV_MODIFIER_CONFIG } from "./Card";
 
 const WorkerDetail = ({ id, workersList }) => {
   const id1 = parseInt(id);
@@ -12,29 +13,17 @@ const WorkerDetail = ({ id, workersList }) => {
     return null;
   } else {
     return (
-      <div className="worker-details" style={{ display: "flex" }}>
-        <Accordion style={{ flexBasis: "80%" }} expandIcon={<ExpandMoreIcon />}>
-          <AccordionSummary style={{ flexBasis: "100%" }}>
-            <div
-              style={{
-                flexBasis: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-around",
-                backgroundColor: "dfd6e4",
-              }}
-            >
-              <Avatar
-                src={worker.image}
-                alt={worker.name}
-                style={{ margin: "2%" }}
-              ></Avatar>
-              <h3 style={{ padding: "2%" }}>{worker.name}</h3>
+      <CardSectionDiv className="worker-details">
+        <Accordion expandIcon={<ExpandMoreIcon />}>
+          <AccordionSummary>
+            <div>
+              <Avatar src={worker.image} alt={worker.name}></Avatar>
+              <h3>{worker.name}</h3>
             </div>
           </AccordionSummary>
           <AccordionDetails>
             <div>
-              <div style={{ flexBasis: "10%", padding: "2%" }}>
+              <div>
                 <h3>{worker.name}</h3>
                 <h4>{worker.companyName}</h4>
                 <h5>{worker.email}</h5>
@@ -42,7 +31,7 @@ const WorkerDetail = ({ id, workersList }) => {
             </div>
           </AccordionDetails>
         </Accordion>
-      </div>
+      </CardSectionDiv>
     );
   }
 };

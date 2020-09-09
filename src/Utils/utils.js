@@ -93,7 +93,24 @@ const toDateFromEpochMS = (eSecMilliSeconds) => {
 };
 
 export const getDaysOpen = (date) => {
-  return Math.round(Math.abs(new Date() - date) / (1000 * 60 * 60 * 24));
+  const daysOpen = Math.round(
+    Math.abs(new Date() - date) / (1000 * 60 * 60 * 24)
+  );
+  if (daysOpen > 0) {
+    return {
+      status: "+",
+      text: `Due in ${daysOpen} ${daysOpen === 1 ? "day" : "days"}`,
+    };
+  } else if (daysOpen === 0) {
+    return { status: "|", text: `Due Today` };
+  } else {
+    return {
+      status: "-",
+      text: `Overdue by ${-1 * daysOpen} ${
+        -1 * daysOpen === 1 ? "day" : "days"
+      }`,
+    };
+  }
 };
 
 /*---------*/
@@ -125,3 +142,17 @@ export const filterOrdersByIdOrder = (orders, filterBy, isSortAscending) => {
   });
   return returnSorted(filteredOrders, isSortAscending, "deadline");
 };
+
+/*-----------*/
+
+export function hexToRGB(hex, alpha) {
+  let r = parseInt(hex.slice(1, 3), 16),
+    g = parseInt(hex.slice(3, 5), 16),
+    b = parseInt(hex.slice(5, 7), 16);
+
+  if (alpha) {
+    return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+  } else {
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+  }
+}

@@ -1,11 +1,17 @@
 import React from "react";
+import styled from "styled-components";
+
+const FilterBarDiv = styled.div`
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+`;
 
 const FilterOrderByWorker = ({ workersList, updateDisplayedOrders }) => {
   if (!workersList) {
     return null;
   } else {
     return (
-      <div className="filterbar">
+      <FilterBarDiv className="filterbar">
         <label htmlFor="filter-workder"> Filter by Worker Name: </label>
         <select
           id="filter-worker"
@@ -22,10 +28,10 @@ const FilterOrderByWorker = ({ workersList, updateDisplayedOrders }) => {
            * being used as the value. I am passing "" as a value that results in
            * a "null-like value" */}
           <option value={""} key={"clear"}>
-            Clear Selection
+            None
           </option>
         </select>
-      </div>
+      </FilterBarDiv>
     );
   }
 };
