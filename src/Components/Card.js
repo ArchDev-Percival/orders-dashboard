@@ -14,9 +14,7 @@ const CardDiv = styled.div`
   grid-row: span 1 / span 1;
   grid-column: span 1 / span 1;
   background-color: ${(props) => props.theme.cardBackgroundColor};
-  border-radius: 0.5rem;
-
-  justify-content: center;
+  border-radius: 1rem;
 
   &:hover {
     background-color: ${(props) => props.theme.cardBackgroundColorHover};
