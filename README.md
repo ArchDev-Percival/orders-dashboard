@@ -26,3 +26,6 @@ A React Application to demonstrate core concepts. The app allows:
 
 1. `npm run-script build`
 2. Copy the `build` folder to Netlify
+
+# Live Implementation
+1. [Netify Link](https://stoic-saha-0c027f.netlify.app/)
